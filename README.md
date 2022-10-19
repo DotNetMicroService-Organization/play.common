@@ -3,7 +3,7 @@ Common libraries used by PLay Economy Services.
 
 ## Create and publish package
 ```powershell
-$version="1.0.8"
+$version="1.0.9"
 $owner="DotNetMicroService-Organization"
 $ph_pat="[PAT HERE]"
 
