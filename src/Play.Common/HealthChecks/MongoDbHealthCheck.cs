@@ -15,10 +15,7 @@ public class MongoDbHealthCheck : IHealthCheck
     public MongoDbHealthCheck(MongoClient client)
     {
         this.client = client;
-
-        logger.LogInformation(
-                            "AAAA Receiving mongodbclient {MongoClient}",
-                            this.client);
+        System.Console.WriteLine("teste client" + client.ToString());
     }
 
     public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
