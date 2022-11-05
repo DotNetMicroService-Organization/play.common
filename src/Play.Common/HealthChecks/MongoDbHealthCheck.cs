@@ -12,17 +12,17 @@ public class MongoDbHealthCheck : IHealthCheck
     private readonly ILogger<MongoDbHealthCheck> logger;
 
 
-    public MongoDbHealthCheck(MongoClient client, ILogger<MongoDbHealthCheck> logger)
+    public MongoDbHealthCheck(MongoClient client)
     {
         this.client = client;
-        this.logger = logger;
+
+        logger.LogInformation(
+                            "AAAA Receiving mongodbclient {MongoClient}",
+                            this.client);
     }
 
     public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
     {
-        logger.LogInformation(
-                            "AAAA Receiving mongodbclient {MongoClient}",
-                            this.client);
         try
         {
             await client.ListDatabaseNamesAsync(cancellationToken);
