@@ -82,6 +82,7 @@ namespace Play.Common.MassTransit
                     configureRetries = (retryConfigurator) => retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
 
                 configurator.UseMessageRetry(configureRetries);
+                configurator.UseInstrumentation(serviceName: serviceSettings.ServiceName);
             });
         }
 
@@ -99,6 +100,7 @@ namespace Play.Common.MassTransit
                     configureRetries = (retryConfigurator) => retryConfigurator.Interval(3, TimeSpan.FromSeconds(5));
 
                 configurator.UseMessageRetry(configureRetries);
+                configurator.UseInstrumentation(serviceName: serviceSettings.ServiceName);
             });
         }
     }
